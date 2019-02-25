@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { DataObject } from '../../_helpers/users.methods';
 import * as db from '../../_data/2017';
@@ -23,14 +23,12 @@ const TABLE_DATA = Data.yearlyUsers(monthlyData);
   selector: 'users-2017-root',
   templateUrl: './2017.component.html'
 })
-export class Users2017Component implements OnInit {
+export class Users2017Component {
   constructor() {}
 
-  public months:string[] = ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Year"];
+  public months:string[] = ["May", "Jun", "Jul", "Aug", "Sep",
+    "Oct", "Nov", "Dec", "Year"];
 
   public displayedColums:string[] = ['name'].concat(this.months);
   public dataSource = TABLE_DATA;
-
-  ngOnInit() {
-  }
 }

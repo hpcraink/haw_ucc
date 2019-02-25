@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './2018.component.html'
 })
 export class Year2018Component {
+  constructor () {}
+
 }
