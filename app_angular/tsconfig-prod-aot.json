@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "public/aot",
+    "importHelpers": true,
+    "module": "es2015",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+  },
+  "files": [
+    "src/app/2019/2019.module.ts",
+    "src/app/2018/2018.module.ts",
+    "src/app/2017/2017.module.ts",
+    "src/app/users/users.module.ts",
+    "src/app/app.module.ts",
+    "src/main.aot.ts"
+  ],
+
+  "angularCompilerOptions": {
+    "skipMetadataEmit": true,
+    "fullTemplateTypeCheck": true,
+    "genDir": "public/aot",
+    "entryModule": "src/app/app.module#AppModule"
+  }
+}

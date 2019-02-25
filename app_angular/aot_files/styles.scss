@@ -1,0 +1,140 @@
+// Variables
+//$title-font-family: 'Molengo', sans-serif;
+$title-font-family: 'K2D', sans-serif;
+$text-font-family: 'Lekton', sans-serif;
+$test-font-family: 'Indie Flower', cursive;
+
+$logo-color: #5677fc;
+
+$test-color: #f00;
+$test-border: medium solid $test-color;
+$card-padding: 10px;
+
+.test-window {
+  border: $test-border;
+}
+
+// Changes to angular material
+@import '~@angular/material/theming'; // import theming functions
+
+// Define custom typography config that overrides the font-family etc
+$general-typography: mat-typography-config(
+  $font-family: $title-font-family,
+);
+$secondary-typography: mat-typography-config(
+  $font-family: $text-font-family
+);
+
+// Override typography CSS classes for all Angular Material
+//@include angular-material-typography($general-typography);
+@include mat-core($general-typography);
+
+// Change color pallets
+$app-primary: mat-palette($mat-teal, 600);
+$app-accent:  mat-palette($mat-orange, A700);
+$app-warn:    mat-palette($mat-red, A400);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+
+$btn-font-size: 22px;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0 1%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  height: 97%;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  height: 3%;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  margin: 0;
+  padding: 10px 0 0;
+}
+
+.mat-tab-label,
+.mat-tab-label-active {
+  font-size: $btn-font-size;
+}
+
+.mat-button {
+  font-size: $btn-font-size;
+}
+
+.navs {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+
+.prefixes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tab-month {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+.just-table {
+  display: flex;
+  justify-content: center;
+
+  .mat-header-cell {
+    font-size: 18px;
+  }
+}
+
+.chart-card {
+  height: 55%;
+  margin-top: 5%;
+
+  .mat-card-header {
+    font-size: 18px;
+    margin: 5px;
+  }
+
+  .mat-card-content {
+    font-size: 16px;
+  }
+
+  //@media screen and (max-width: 1150px) {
+  //  display: none !important;
+  //}
+}
+
+@media screen and (max-width: 1150px) {
+  .mat-card {
+    display: none !important;
+  }
+}
