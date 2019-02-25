@@ -30,15 +30,21 @@ interface MonthlyData {
   data: JsonData[]
 }
 
-interface YearlyUniData {
+interface YearlyUniUsers {
   prefix: string,
   name: string,
-  users: YearlyUsers[]
-}
-
-interface YearlyUsers {
-  month: string,
-  nr: number
+  Jan?: number,
+  Feb?: number,
+  Mar?:number,
+  Apr?:number,
+  May?:number,
+  Jun?:number,
+  Jul?:number,
+  Aug?:number,
+  Set?:number,
+  Oct?:number,
+  Nov?:number,
+  Dec?:number
 }
 
 export class DataObject  {
@@ -85,10 +91,14 @@ export class DataObject  {
   public getData(data_obj:JsonData[]):UniData[] {
     let allData:UniData[] = []
     uniPrefixes.forEach((prx_elem:UniData) => {
-      if (this.uniDataWithPct(data_obj, prx_elem.prefix)) {
-        prx_elem.data = this.uniDataWithPct(data_obj, prx_elem.prefix)
+      let push_elem:UniData = { // not to make changed in uniPrefixes
+        prefix: prx_elem.prefix,
+        name: prx_elem.name
       }
-      allData.push(prx_elem);
+      if (this.uniDataWithPct(data_obj, prx_elem.prefix)) {
+        push_elem.data = this.uniDataWithPct(data_obj, prx_elem.prefix)
+      }
+      allData.push(push_elem);
     })
     return allData
   }
@@ -105,16 +115,17 @@ export class DataObject  {
     return generalData;
   }
 
-  public fullTableData(monthlyDataObject:any) {
-    let yearlyData:YearlyUniData[] = [];
-    monthlyDataObject.forEach((monthly_data:any) => {
-      const month = monthly_data.month === -1 ? 'Total' : months[monthly_data.month]
-      const users:number[] = []
+  public yearlyUsers(monthlyDataObject:MonthlyData[]):YearlyUniUsers[] {
+    let yearlyData:YearlyUniUsers[] = uniPrefixes;
+    monthlyDataObject.forEach((monthly_data:MonthlyData) => {
+      const month = monthly_data.month === -1 ? 'Year' : months[monthly_data.month].substring(0,3)
       this.getData(monthly_data.data).forEach((uni_data:UniData) => {
-        yearlyData.push({
-        })
+        let obj_to_attach_data_to = yearlyData.find((uni:YearlyUniUsers) => {
+          return uni.prefix === uni_data.prefix
+        });
+        obj_to_attach_data_to[month] = uni_data.data ? uni_data.data.length : 0
       })
-      console.log(month)
     })
+    return yearlyData;
   }
 }

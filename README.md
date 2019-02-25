@@ -9,5 +9,4 @@ The website is designed to process and display the HAW users usage of total clus
  Angular
 
 ## Data processing:
- Bash scripts
- Python 3
+ Bash scripts / Python 3
