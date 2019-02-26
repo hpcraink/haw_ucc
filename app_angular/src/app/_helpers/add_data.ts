@@ -15,6 +15,22 @@ export const pie_chart_opt = {
   }
 }
 
+export const users_chart_opt = {
+  columnNames: ['User ID', 'Total costs'],
+  options: {
+    pieHole: 0.4,
+    fontName: 'K2D',
+    fontSize: 18,
+    colors: ['#ff1744', '#651fff', '#0091ea', '#43a047', '#78909c', '#ad1457',
+             '#00796b', '#827717', '#2962ff', '#8d6e63', '#d500f9'],
+    legend: {
+      position: 'right'
+    }
+  },
+  width: 800,
+  height: 500,
+}
+
 export const total_opt = {
   titile: "Utilized cluster capacity (UCC) by all HAWs in",
   headerCard: "Monthly HAWs UCC in percentage",
@@ -61,5 +77,6 @@ export const total_uca_2018 = [
 ]
 
 export const total_uca_2019 = [
-  {year: 2019, month: 1, haw: 6.24, total: 90.71 }
+  {year: 2019, month: 1, haw: 6.24, total: 90.71 },
+  {year: 2019, month: 2, haw: 5.24, total: 90.71 }
 ]

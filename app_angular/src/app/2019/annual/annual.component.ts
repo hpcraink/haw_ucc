@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { uca_2019_total } from './../../_helpers/bwUniData_2019';
+import { uca_2019_total } from './../../_data/bwUniData_2019';
 import { pie_chart_opt } from './../../_helpers/add_data';
 
 

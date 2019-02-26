@@ -11,7 +11,7 @@ const monthlyData = [
   { month: 2, data: db.udata_2019_2 },
 ];
 
-const Data = new DataObject(monthlyData);
+const Data = new DataObject();
 const TABLE_DATA = Data.yearlyUsers(monthlyData);
 
 @Component({

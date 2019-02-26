@@ -106,7 +106,7 @@ footer {
 
 }
 
-.just-table {
+.users-table {
   display: flex;
   justify-content: center;
 
@@ -121,6 +121,23 @@ footer {
   .mat-header-cell {
     font-size: 18px;
   }
+}
+
+.pct-table {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+
+  table {
+    width: 40%;
+
+    .mat-header-cell,
+    .mat-cell {
+      font-size: 18px;
+    }
+  }
+
 }
 
 .chart-card {

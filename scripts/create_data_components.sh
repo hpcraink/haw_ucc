@@ -30,7 +30,7 @@ generate_component () {
   cat << EOF
 import { Component } from '@angular/core';
 
-import { ${ucaVariable} } from '../../_helpers/bwUniData_${year}';
+import { ${ucaVariable} } from '../../_data/bwUniData_${year}';
 import { months,
          total_uca_${year},
          pie_chart_opt

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-import { uca_2019_01 } from './../../_helpers/bwUniData_2019';
+import { uca_2019_01 } from '../../_data/bwUniData_2019';
 import { months,
          total_uca_2019,
          pie_chart_opt
-       } from './../../_helpers/add_data';
+       } from '../../_helpers/add_data';
 
 // get data
 let data:any[] = [];

@@ -4,7 +4,7 @@ import { months } from '../_helpers/add_data';
 interface UserData {
   userID: string,
   email: string,
-  costs: number,
+  costs?: number,
   pcts?: string
 }
 
@@ -51,7 +51,7 @@ export class DataObject  {
 
   constructor(
     //public data_obj: JsonData[]
-    public dataObj: MonthlyData[]
+    //public dataObj: MonthlyData[]
   ) {}
 
   public uniDataObj(data_obj:JsonData[], prefix:string):JsonData {

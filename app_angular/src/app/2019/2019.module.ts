@@ -9,6 +9,7 @@ import { UnisModule } from '../unis/unis.module';
 import { TotalModule } from './total/total.module';
 import { AnnualModule } from './annual/annual.module';
 import { Month1Module } from './1/1.module';
+import { Month2Module } from './2/2.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { Month1Module } from './1/1.module';
     AnnualModule,
     TotalModule,
     Month1Module,
+    Month2Module,
     UnisModule,
     Year2019RouterModule,
     MatTabsModule,

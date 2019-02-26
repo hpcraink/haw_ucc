@@ -1,30 +1,30 @@
 import { Component } from '@angular/core';
 
-import { uca_2018_07 } from '../../_data/bwUniData_2018';
+import { uca_2019_02 } from '../../_data/bwUniData_2019';
 import { months,
-         total_uca_2018,
+         total_uca_2019,
          pie_chart_opt
        } from '../../_helpers/add_data';
 
 // get data
 let data:any[] = [];
-uca_2018_07.forEach( (row) => {
+uca_2019_02.forEach( (row) => {
   data.push([row.prefix, row.cost]);
 });
 
 @Component({
-  selector: 'data-2018-7',
-  templateUrl: '7.component.html'
+  selector: 'data-2019-2',
+  templateUrl: '2.component.html'
 })
-export class Month7Component {
-  public year = 2018;
-  public mnth:number = 7;
-  public haw_data = uca_2018_07;
+export class Month2Component {
+  public year = 2019;
+  public mnth:number = 2;
+  public haw_data = uca_2019_02;
 
   public title = pie_chart_opt.title;
   public cardHeader = pie_chart_opt.headerCard;
   public month = months[this.mnth];
-  public tcc_total = total_uca_2018.find(item => item.year === this.year &&
+  public tcc_total = total_uca_2019.find(item => item.year === this.year &&
     item.month === this.mnth)
 
   // Pie chart
