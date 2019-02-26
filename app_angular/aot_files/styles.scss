@@ -110,6 +110,14 @@ footer {
   display: flex;
   justify-content: center;
 
+  table {
+    width: 80%;
+
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+
   .mat-header-cell {
     font-size: 18px;
   }
@@ -138,11 +146,24 @@ footer {
 }
 
 .users-table-text {
-  text-align: center;
+  padding-left: 25px;
+  text-align: left;
 }
 
 @media screen and (max-width: 1150px) {
   .mat-card {
+    display: none !important;
+  }
+}
+
+@media screen and (max-height: 840px) {
+  footer {
+    display: none !important;
+  }
+}
+
+@media screen and (max-height: 885px) and (max-width: 1050px) {
+  footer {
     display: none !important;
   }
 }

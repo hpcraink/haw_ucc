@@ -5,19 +5,19 @@ import { MatTableModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 
-import { Users2017RouterModule } from './2017.router';
-import { Users2017Component } from './2017.component';
-import { Aa2017_12Component } from './aa/12.component';
+import { Users2019RouterModule } from './2019.router';
+import { Users2019Component } from './2019.component';
+import { Aa2019_12Component } from './aa/12.component';
 
 @NgModule({
   imports: [
-    Users2017RouterModule,
+    Users2019RouterModule,
     MatTableModule, MatSortModule, MatButtonModule,
     CommonModule
   ],
   declarations: [
-    Users2017Component,
-    Aa2017_12Component
+    Users2019Component,
+    Aa2019_12Component
   ],
 })
-export class Users2017Module { }
+export class Users2019Module { }

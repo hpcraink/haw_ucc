@@ -1,5 +1,6 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
 
 import { DataObject } from '../../_helpers/users.methods';
 import * as db from '../../_data/2017';
@@ -23,12 +24,18 @@ const TABLE_DATA = Data.yearlyUsers(monthlyData);
   selector: 'users-2017-root',
   templateUrl: './2017.component.html'
 })
-export class Users2017Component {
+export class Users2017Component implements OnInit {
   constructor() {}
 
   public months:string[] = ["May", "Jun", "Jul", "Aug", "Sep",
     "Oct", "Nov", "Dec", "Year"];
 
   public displayedColums:string[] = ['name'].concat(this.months);
-  public dataSource = TABLE_DATA;
+  public dataSource = new MatTableDataSource(TABLE_DATA);
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngOnInit () {
+    this.dataSource.sort = this.sort;
+  }
 }

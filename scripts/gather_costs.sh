@@ -2,7 +2,7 @@
 
 inputFolder="../feedback/haw"
 outputFolder="../output"
-ngDataFolder="./ngData/_helpers"
+ngDataFolder="./ngData/_data"
 
 prefixes='aa as es hf hk hn hr hs ht hu ro'
 

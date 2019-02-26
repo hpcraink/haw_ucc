@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: '2017', loadChildren: './2017/2017.module#Year2017Module' },
   { path: 'users/2017', loadChildren: './users/2017/2017.module#Users2017Module'},
   { path: 'users/2018', loadChildren: './users/2018/2018.module#Users2018Module'},
-  { path: 'users', redirectTo: '/users/2017', pathMatch: 'full'},
+  { path: 'users/2019', loadChildren: './users/2019/2019.module#Users2019Module'},
+  { path: 'users', redirectTo: '/users/2019', pathMatch: 'full'},
   { path: '', redirectTo: '2019', pathMatch: 'full'}
 ]
 

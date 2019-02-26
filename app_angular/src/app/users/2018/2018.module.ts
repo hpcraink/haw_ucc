@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material';
+import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 
 import { Users2018RouterModule } from './2018.router';
@@ -11,7 +12,7 @@ import { Aa2018_12Component } from './aa/12.component';
 @NgModule({
   imports: [
     Users2018RouterModule,
-    MatTableModule, MatButtonModule,
+    MatTableModule, MatSortModule, MatButtonModule,
     CommonModule
   ],
   declarations: [
