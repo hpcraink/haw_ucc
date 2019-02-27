@@ -2,7 +2,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 
-import { DataObject } from '../../_helpers/users.methods';
+import { DataObject, YearlyUniUsers } from '../../_helpers/users.methods';
 import * as db from '../../_data/2019';
 
 const monthlyData = [
@@ -12,7 +12,6 @@ const monthlyData = [
 ];
 
 const Data = new DataObject();
-const TABLE_DATA = Data.yearlyUsers(monthlyData);
 
 @Component({
   selector: 'users-2019-root',
@@ -21,10 +20,13 @@ const TABLE_DATA = Data.yearlyUsers(monthlyData);
 export class Users2019Component implements OnInit {
   constructor() {}
 
+  private TABLE_DATA = Data.yearlyUsers(monthlyData);
+
   public months:string[] = ["Jan", "Feb"];
 
   public displayedColums:string[] = ['name'].concat(this.months);
-  public dataSource = new MatTableDataSource(TABLE_DATA);
+  public dataSource: MatTableDataSource<YearlyUniUsers> =
+    new MatTableDataSource(this.TABLE_DATA);
 
   @ViewChild(MatSort) sort: MatSort;
 

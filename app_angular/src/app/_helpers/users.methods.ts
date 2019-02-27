@@ -30,7 +30,7 @@ interface MonthlyData {
   data: JsonData[]
 }
 
-interface YearlyUniUsers {
+export interface YearlyUniUsers {
   prefix: string,
   name: string,
   Jan?: number,

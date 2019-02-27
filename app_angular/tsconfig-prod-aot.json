@@ -13,7 +13,9 @@
     "src/app/2019/2019.module.ts",
     "src/app/2018/2018.module.ts",
     "src/app/2017/2017.module.ts",
-    "src/app/users/users.module.ts",
+    "src/app/users/2017/2017.module.ts",
+    "src/app/users/2018/2018.module.ts",
+    "src/app/users/2019/2019.module.ts",
     "src/app/app.module.ts",
     "src/main.aot.ts"
   ],
