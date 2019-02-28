@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-dataFolder="./ngData/users"
+dataFolder="./ngData/_data"
 
 declare -i processedYear=2017
 [[ ! -z ${2} ]] && declare -i processedYear=${2}
