@@ -19,6 +19,28 @@ sync_data () {
   echo "DONE synchronizing!"
 }
 
+debug () {
+  year=${1}
+  debugFolder='./ngData/haw/debug'
+  inputFolder="${dataFolder}/haw/${year}"
+
+  if [[ -d ${inputFolder} ]]; then
+    [[  -d ${debugFolder} ]] && rm -rf ${debugFolder}
+    mkdir -p ${debugFolder}
+    cp ${inputFolder} ${debugFolder} -rf &&
+    for month in {01..12}; do
+      logFile=${debugFolder}/${year}/${month}.log
+      if [[ -f ${logFile} ]]; then
+        for uniPrefix in ${prefixes}; do
+          sed -i "/Group=${uniPrefix}_${uniPrefix}/d" ${logFile}
+        done
+      fi
+    done
+  else
+    echo "Folder ${inputFolder} does not exist!"
+  fi
+}
+
 collect_data () {
   year=${1}
   for uniPrefix in ${prefixes}; do
@@ -35,6 +57,7 @@ collect_data () {
       grep "Account=haw" ${outputFolder}/${year}/${month}.bak > ${outputFolder}/${year}/${month}.log &&
       rm -f ${outputFolder}/${year}/${month}.bak
       grep "Account=haw" ${dataFolder}/${year}/${year}${month}* > ${outputFolder}/../${year}/${month}.log
+      sed -i "/Group=NOGROUP/d" ${outputFolder}/../${year}/${month}.log
     done
 
     # remove empty files
@@ -76,6 +99,8 @@ help_menu () {
     -h | --help       Show this message
     -s | --sync       Synchronize data base with bwUniCluster
     -c | --calc       Sort synchronized data in ${dataFolder}
+    -d | --debug      Debug sorted data
+
     START_YEAR        From what year to process data min. 2017, if omitted set to 2017
     END_YEAR          To what year to process data min. 2017, if omitted run only for FROM_YEAR
 
@@ -89,6 +114,9 @@ help_menu () {
     Sort data for 2019
         $ ${0} -c 2019
 
+    Debug sorted data for 2019
+        $ ${0} -d 2019
+
 EOF
 }
 
@@ -101,6 +129,9 @@ case "${1}" in
   ;;
   -c | --calc)
     check_year_options collect_data
+  ;;
+  -d | --debug)
+    check_year_options debug
   ;;
   *)
     echo "Wrong operator, for more info try: ${0} --help"

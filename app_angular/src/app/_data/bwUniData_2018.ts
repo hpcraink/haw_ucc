@@ -111,30 +111,30 @@ export const uca_2018_08 = [
 ];
 
 export const uca_2018_09 = [
-  {prefix: 'aa', pct: 0.97, cost: 9599624.000000},
-  {prefix: 'as', pct: 2.51, cost: 24884800.000000},
-  {prefix: 'es', pct: 7.87, cost: 78037362.000000},
+  {prefix: 'aa', pct: 0.96, cost: 9599624.000000},
+  {prefix: 'as', pct: 2.50, cost: 24884800.000000},
+  {prefix: 'es', pct: 7.83, cost: 78037362.000000},
   {prefix: 'hf', pct: 0.00, cost: 0},
   {prefix: 'hk', pct: 0.00, cost: 0},
   {prefix: 'hn', pct: 0.00, cost: 0},
   {prefix: 'hr', pct: 0.00, cost: 0},
-  {prefix: 'hs', pct: 0.07, cost: 646994.750000},
+  {prefix: 'hs', pct: 0.06, cost: 646994.750000},
   {prefix: 'ht', pct: 0.02, cost: 165746.000000},
-  {prefix: 'hu', pct: 89.11, cost: 883552351.680000},
+  {prefix: 'hu', pct: 88.63, cost: 883552351.680000},
   {prefix: 'ro', pct: 0.00, cost: 0},
 ];
 
 export const uca_2018_10 = [
-  {prefix: 'aa', pct: 21.86, cost: 361804161.600000},
-  {prefix: 'as', pct: 16.26, cost: 269103712.000000},
-  {prefix: 'es', pct: 18.43, cost: 304909827.450000},
+  {prefix: 'aa', pct: 21.84, cost: 361804161.600000},
+  {prefix: 'as', pct: 16.24, cost: 269103712.000000},
+  {prefix: 'es', pct: 18.40, cost: 304909827.450000},
   {prefix: 'hf', pct: 0.00, cost: 0},
   {prefix: 'hk', pct: 0.00, cost: 0},
   {prefix: 'hn', pct: 0.00, cost: 854.000000},
   {prefix: 'hr', pct: 0.00, cost: 0},
   {prefix: 'hs', pct: 2.10, cost: 34780696.490000},
   {prefix: 'ht', pct: 0.00, cost: 0},
-  {prefix: 'hu', pct: 41.46, cost: 686104768.280000},
+  {prefix: 'hu', pct: 41.41, cost: 686104768.280000},
   {prefix: 'ro', pct: 0.00, cost: 0},
 ];
 

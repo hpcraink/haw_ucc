@@ -9,17 +9,14 @@ import { udata_2017 } from '../../../_data/2017';
 
 const prefix:string = 'aa'
 const Data = new DataObject();
-const TABLE_DATA = Data.uniData(udata_2017, prefix)
-
-let chart_data:any[] = [];
-TABLE_DATA.forEach((row) => {
-  chart_data.push([row.userID, row.costs]);
-});
 
 @Component({
   templateUrl: './year.component.html'
 })
 export class Aa2017Component implements OnInit {
+  private TABLE_DATA = Data.uniData(udata_2017, prefix)
+
+  private chart_data:any[] = Data.getChartData(this.TABLE_DATA);
 
   public uni:string = uniPrefixes.find(element => {
     return element.prefix === prefix
@@ -28,11 +25,11 @@ export class Aa2017Component implements OnInit {
   public time:string = "2017"
 
   public displayedColums:string[] = ['userID', 'email', 'pcts']
-  public dataSource = new MatTableDataSource(TABLE_DATA);
+  public dataSource = new MatTableDataSource(this.TABLE_DATA);
 
   // Pie chart
   public type = 'PieChart';
-  public data = chart_data;
+  public data = this.chart_data;
   public columnNames = users_chart_opt.columnNames;
   public options = users_chart_opt.options;
   public width = users_chart_opt.width;

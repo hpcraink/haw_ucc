@@ -128,4 +128,12 @@ export class DataObject  {
     })
     return yearlyData;
   }
+
+  public getChartData(tableData:UserData[]):any[] {
+    let chartData:any[] = []
+      tableData.forEach((row:UserData) => {
+        chartData.push([row.userID, row.costs]);
+      })
+    return chartData
+  }
 }
