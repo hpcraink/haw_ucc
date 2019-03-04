@@ -43,6 +43,5 @@ export class Users2018Component implements OnInit {
 
   ngOnInit () {
     this.dataSource.sort = this.sort;
-    console.log("2018 init")
   }
 }
