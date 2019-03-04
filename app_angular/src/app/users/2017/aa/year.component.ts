@@ -1,30 +1,31 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
 
 import { DataObject } from '../../../_helpers/users.methods';
-import { users_chart_opt } from '../../../_helpers/add_data';
+import { users_chart_opt, months } from '../../../_helpers/add_data';
 import { uniPrefixes } from '../../../_helpers/uni_prefixes';
 import { udata_2017 } from '../../../_data/2017';
-
 
 const prefix:string = 'aa'
 const Data = new DataObject();
 
 @Component({
-  templateUrl: './year.component.html'
+  templateUrl: 'year.component.html'
 })
 export class Aa2017Component implements OnInit {
-  private TABLE_DATA = Data.uniData(udata_2017, prefix)
+  private TABLE_DATA = Data.uniData(udata_2017, prefix);
 
   private chart_data:any[] = Data.getChartData(this.TABLE_DATA);
 
   public uni:string = uniPrefixes.find(element => {
     return element.prefix === prefix
-  }).name
+  }).name;
 
-  public time:string = "2017"
+  public month:string = "";
+  public title:string = "Unique users workload for 2017:";
 
-  public displayedColums:string[] = ['userID', 'email', 'pcts']
+  public displayedColums:string[] = ['userID', 'email', 'pcts'];
   public dataSource = new MatTableDataSource(this.TABLE_DATA);
 
   // Pie chart

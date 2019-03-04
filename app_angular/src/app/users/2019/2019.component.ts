@@ -22,7 +22,7 @@ export class Users2019Component implements OnInit {
 
   private TABLE_DATA = Data.yearlyUsers(monthlyData);
 
-  public months:string[] = ["Jan", "Feb"];
+  public months:string[] = ["Jan", "Feb", "Year"];
 
   public displayedColums:string[] = ['name'].concat(this.months);
   public dataSource: MatTableDataSource<YearlyUniUsers> =

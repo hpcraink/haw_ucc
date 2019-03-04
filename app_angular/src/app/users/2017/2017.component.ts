@@ -26,8 +26,9 @@ const Data = new DataObject();
 export class Users2017Component implements OnInit {
   constructor() {}
 
+  public title = "Unique HAW users on bwUniCluster in 2017"
   private TABLE_DATA = Data.yearlyUsers(monthlyData);
-  
+
   public months:string[] = ["May", "Jun", "Jul", "Aug", "Sep",
     "Oct", "Nov", "Dec", "Year"];
 
