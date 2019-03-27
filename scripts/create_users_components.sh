@@ -43,10 +43,6 @@ help_menu () {
   cat << EOF
   Usage: ${0} OPTIONS [START_YEAR] [END_YEAR]
 
-  YEAR               Year to process
-  START_MONTH        From what month to start generating components
-  END_MONTH          To what month to continue generating, if omitted run only for FROM_MONTH
-
   OPTIONS:
     -h | --help         Show this message
     -c | --create       Create users components
