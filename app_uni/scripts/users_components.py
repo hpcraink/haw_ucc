@@ -27,17 +27,10 @@ def getJsonObject (year, month):
         return json.loads(line)
   return -1
 
-def inserts(year, uni="all"):
+def inserts(year):
   routes, imports, components = [], [], [];
 
-  if uni == "all":
-    prefixes = hawPrefixes
-  elif uni in hawPrefixes:
-    prefixes = [uni]
-  else:
-    return "Wrong Uni specified"
-
-  for prefix in prefixes:
+  for prefix in hawPrefixes:
     if uniData(prefix, year, -1) != -1 :
       cmpnt = (prefix + str(year) + 'Component').title()
       components.append(cmpnt)
@@ -62,7 +55,7 @@ def addImports(db):
     text += impString + '\n'
   return text
 
-def router(year, uni="all"):
+def router(year):
   text = '''
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -70,7 +63,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Users${year}Component } from './${year}.component';
 '''
 
-  data = inserts(year, uni)
+  data = inserts(year)
   text += addImports(data)
 
   text += "\nconst routes: Routes = [\n"
@@ -90,7 +83,7 @@ export class Users${year}RouterModule {}
   textTempl = Template(text)
   return textTempl.substitute(year=str(year))
 
-def module(year, uni="all"):
+def module(year):
   text = '''
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -103,7 +96,7 @@ import { Users${year}RouterModule } from './${year}.router';
 import { Users${year}Component } from './${year}.component';
 '''
 
-  data = inserts(year, uni)
+  data = inserts(year)
   text += addImports(data)
 
   text += '''
@@ -228,42 +221,27 @@ export class ${component} implements OnInit {
   return textTempl.substitute(year=year, mnth=mnth, dataObj=dataObj,
     htmlUrl=htmlUrl, component=component, prefix=prefix)
 
-def createFiles(year, uni="all"):
-  if uni == "all":
-    outFolder = os.path.join(outputFolder, str(year))
-  elif uni in hawPrefixes:
-    outFolder = os.path.join(outputFolder, uni, str(year))
-  else:
-    return "Wrong Uni specified"
+def createFiles(year):
+  outFolder = os.path.join(outputFolder, str(year))
 
   if not os.path.exists(outFolder): os.makedirs(outFolder)
   routerFile = os.path.join(outFolder, str(year) + '.router.ts')
   with open(routerFile, 'w') as routerF:
-    routerF.write(router(year, uni))
+    routerF.write(router(year))
 
   moduleFile = os.path.join(outFolder, str(year) + '.module.ts')
   with open (moduleFile, 'w') as moduleF:
-    moduleF.write(module(year, uni))
+    moduleF.write(module(year))
 
-  if uni != "all" and uni in hawPrefixes:
-    prefixes = [uni]
-  else: prefixes = hawPrefixes
-
-  for prefix in prefixes:
+  for prefix in hawPrefixes:
     if uniData(prefix, year, -1) != -1:
-      writeComponents(prefix, year, -1, uni)
+      writeComponents(prefix, year, -1)
     for month in range(1,13):
       if uniData(prefix, year, month) != -1:
-        writeComponents(prefix, year, month, uni)
+        writeComponents(prefix, year, month)
 
-def writeComponents(prefix, year, month, uni="all"):
-  if uni == "all":
-    componentFolder = os.path.join(outputFolder, str(year), prefix)
-  elif uni in hawPrefixes:
-    componentFolder = os.path.join(outputFolder, uni, str(year))
-  else:
-    return "Wrong Uni specified"
-
+def writeComponents(prefix, year, month):
+  componentFolder = os.path.join(outputFolder, str(year), prefix)
   if not os.path.exists(componentFolder): os.makedirs(componentFolder)
   fileBaseName = 'year.component' if month == -1 else str(month) + '.component'
   with open(os.path.join(componentFolder, fileBaseName + '.ts'), 'w') as f:
@@ -273,18 +251,13 @@ def writeComponents(prefix, year, month, uni="all"):
 
 def main (argv):
   try:
-    opts, args = getopt.getopt(argv, "y:u:")
+    opts, args = getopt.getopt(argv, "y:")
   except getopt.GetoptError:
     print ('users.components.py -y <year>')
     sys.exit(2)
   for opt, arg in opts:
-    if opt == '-u':
-      uni = arg
-
     if opt == '-y':
-      year = int(arg)
-
-  createFiles(year, uni)
+      createFiles(arg)
 
 if __name__ == "__main__":
   main(sys.argv[1:])

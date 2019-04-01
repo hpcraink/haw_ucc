@@ -27,30 +27,44 @@ export const uca_2019_02 = [
 ];
 
 export const uca_2019_03 = [
-  {prefix: 'aa', pct: 0.00, cost: 0},
+  {prefix: 'aa', pct: 4.00, cost: 62093669.350000},
+  {prefix: 'as', pct: 6.13, cost: 95134808.000000},
+  {prefix: 'es', pct: 7.18, cost: 111425879.060000},
+  {prefix: 'hf', pct: 0.00, cost: 0},
+  {prefix: 'hk', pct: 0.00, cost: 0},
+  {prefix: 'hn', pct: 0.05, cost: 822690.940000},
+  {prefix: 'hr', pct: 0.00, cost: 0},
+  {prefix: 'hs', pct: 4.22, cost: 65418981.990000},
+  {prefix: 'ht', pct: 0.00, cost: 0},
+  {prefix: 'hu', pct: 78.42, cost: 1217021430.210000},
+  {prefix: 'ro', pct: 0.00, cost: 0},
+];
+
+export const uca_2019_04 = [
+  {prefix: 'aa', pct: 0.02, cost: 364.000000},
   {prefix: 'as', pct: 0.00, cost: 0},
-  {prefix: 'es', pct: 0.03, cost: 16952.000000},
+  {prefix: 'es', pct: 0.00, cost: 0},
   {prefix: 'hf', pct: 0.00, cost: 0},
   {prefix: 'hk', pct: 0.00, cost: 0},
   {prefix: 'hn', pct: 0.00, cost: 0},
   {prefix: 'hr', pct: 0.00, cost: 0},
-  {prefix: 'hs', pct: 12.31, cost: 6797879.840000},
+  {prefix: 'hs', pct: 99.98, cost: 1631422.050000},
   {prefix: 'ht', pct: 0.00, cost: 0},
-  {prefix: 'hu', pct: 87.66, cost: 48389040.000000},
+  {prefix: 'hu', pct: 0.00, cost: 0.000000},
   {prefix: 'ro', pct: 0.00, cost: 0},
 ];
 
 export const uca_2019_total = [
-  {prefix: 'aa', cost: 981878442.700000},
-  {prefix: 'as', cost: 393654256.000000},
-  {prefix: 'es', cost: 1147800365.520000},
+  {prefix: 'aa', cost: 1043972476.050000},
+  {prefix: 'as', cost: 488789064.000000},
+  {prefix: 'es', cost: 1259209292.580000},
   {prefix: 'hf', cost: 0},
   {prefix: 'hk', cost: 2387086.910000},
-  {prefix: 'hn', cost: 5907576.670000},
+  {prefix: 'hn', cost: 6730267.610000},
   {prefix: 'hr', cost: 0},
-  {prefix: 'hs', cost: 89386436.850000},
+  {prefix: 'hs', cost: 149638961.050000},
   {prefix: 'ht', cost: 0},
-  {prefix: 'hu', cost: 2244803848.390000},
+  {prefix: 'hu', cost: 3413436238.600000},
   {prefix: 'ro', cost: 0},
 ];
 

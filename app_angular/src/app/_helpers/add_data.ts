@@ -78,5 +78,6 @@ export const total_uca_2018 = [
 
 export const total_uca_2019 = [
   {year: 2019, month: 1, haw: 6.24, total: 90.71 },
-  {year: 2019, month: 2, haw: 3.00, total: 81.24 }
+  {year: 2019, month: 2, haw: 3.18, total: 79.89 },
+  {year: 2019, month: 3, haw: 2.17, total: 89.55 }
 ]

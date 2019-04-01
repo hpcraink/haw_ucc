@@ -96,6 +96,12 @@ gather_data () {
   echo -e "];\n" >> ${ngDataFile}
 }
 
+appFolder="../app_angular/src/app/_data"
+move_files () {
+  [[ ! -d ${appFolder} ]] && mkdir -p ${appFolder}
+  mv ${ngDataFolder}/* ${appFolder} -v && rm -rf ${ngDataFolder}
+}
+
 help_menu () {
   cat << EOF
   Gather "TotalCost" data from feedback files.
@@ -107,6 +113,7 @@ help_menu () {
 
   OPTIONS:
     -h | --help         Show this message
+    -m | --move         Move files from ${ngDataFolder} to ${appFolder}
 
   EXAMPLES:
     Gather data for 2018
@@ -136,6 +143,9 @@ check_year_options () {
 case "${1}" in
   -h | --help)
     help_menu
+  ;;
+  -m | --move)
+    move_files
   ;;
   *)
     check_year_options gather_data

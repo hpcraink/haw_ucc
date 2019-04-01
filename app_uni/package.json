@@ -1,0 +1,49 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "bwUniCluster stats",
+  "main": "main.js",
+  "bin": {
+    "frontend": "app.js"
+  },
+  "scripts": {
+    "clean:all": "find * -maxdepth 0 ! -name package.json -not -name scripts -print0 | xargs -0 rm -rf --",
+    "copy:new": "rsync -uavh --exclude package.json --exclude node_modules --exclude aot_files/htppwd ../app_angular/* .",
+    "copy:app": "rsync -uavh --delete-excluded ../app_angular/src/app/* src/app/",
+    "make": "npm run clean:all && npm run copy:new",
+    "save": "[[ -d public ]] && [[ -d ./prod_work ]] && rm ./prod_work -rf;  mv public prod_work || echo 'compile first!!!'",
+    "watch": "ng serve --aot --watch"
+  },
+  "author": "Alexandru Saramet",
+  "license": "ISC",
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^0.13.4",
+    "@angular/animations": "^7.2.7",
+    "@angular/cdk": "^7.3.3",
+    "@angular/cli": "^7.3.4",
+    "@angular/common": "^7.2.7",
+    "@angular/compiler": "^7.2.7",
+    "@angular/compiler-cli": "^7.2.7",
+    "@angular/core": "^7.2.7",
+    "@angular/forms": "^7.2.7",
+    "@angular/material": "^7.3.3",
+    "@angular/platform-browser": "^7.2.7",
+    "@angular/platform-browser-dynamic": "^7.2.7",
+    "@angular/router": "^7.2.7",
+    "@ngtools/webpack": "^7.3.4",
+    "angular-google-charts": "^0.1.3",
+    "compression-webpack-plugin": "^2.0.0",
+    "css-loader": "^2.1.0",
+    "extract-loader": "^3.1.0",
+    "file-loader": "^3.0.1",
+    "html-loader": "^0.5.5",
+    "rxjs": "^6.4.0",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.2.4",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "zone.js": "^0.8.29"
+  },
+  "dependencies": {}
+}

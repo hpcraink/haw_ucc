@@ -10,6 +10,7 @@ import { TotalModule } from './total/total.module';
 import { AnnualModule } from './annual/annual.module';
 import { Month1Module } from './1/1.module';
 import { Month2Module } from './2/2.module';
+import { Month3Module } from './3/3.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { Month2Module } from './2/2.module';
     TotalModule,
     Month1Module,
     Month2Module,
+    Month3Module,
     UnisModule,
     Year2019RouterModule,
     MatTabsModule,

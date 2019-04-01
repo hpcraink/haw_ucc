@@ -4,27 +4,30 @@ appFolder="../app_angular/src/app/users"
 dataFolder="./ngData/users"
 
 generate () {
-  year=${1}
+  uni=${1}
+  year=${2}
   outputFolder="${dataFolder}/${year}"
   echo "--- generating components for ${year} in ${outputFolder}..."
-  [[ ! -d ${outputFolder} ]] && mkdir -p ${outputFolder}
+  #[[ ! -d ${outputFolder} ]] && mkdir -p ${outputFolder}
   dataFolder="./ngData/_data"
   [[ ! -d ${dataFolder} ]] && mkdir -p ${dataFolder}
   [[ ! -f ${dataFolder}/${year}.json ]] && ./gather_users_data.sh -j ${year}
-  python3 users_components.py -y ${year}
+  python3 users_components.py -u ${uni} -y ${year}
 }
 
 check_options () {
   runFunction=${1}
-  startYear=${2}
-  endYear=${3}
+  uni=${2}
+  startYear=${3}
+  endYear=${4}
+  [[ ${uni} -ge 2017 ]] || [[ -z ${uni} ]] && echo "Specify which uni/s to create components for!" && exit 0
   if [[ ${startYear} -gt `date +%Y` ]]; then
     echo "ERROR: ${startYear} haven't come yet, it's still `date +%Y`"
   elif [[ -z ${endYear} ]] || [[ ${endYear} -gt ${startYear} ]]; then
     [[ -z ${endYear} ]] && endYear=${startYear}
     while [[ ${startYear} -le ${endYear} ]]; do
       echo "---Creating components for: ${startYear}..."
-      ${runFunction} ${startYear}
+      ${runFunction} ${uni} ${startYear}
       echo "---Done!"
       startYear=$(( ${startYear} + 1 ))
     done
@@ -34,9 +37,14 @@ check_options () {
 }
 
 move_files () {
-  year=${1}
-  echo "--- moving files from ${dataFolder} to ${appFolder}..."
-  mv ${dataFolder}/${year}/* ${appFolder}/${year}
+  uni=${1}
+  year=${2}
+  if [[ ${uni} == "all" ]]; then
+    echo "--- moving files from ${dataFolder} to ${appFolder}..."
+    mv ${dataFolder}/${year}/* ${appFolder}/${year}
+  else
+    echo "should move to ${uni}"
+  fi
 }
 
 help_menu () {
@@ -49,14 +57,17 @@ help_menu () {
     -m | --move         Move files to angular application folder
 
   EXAMPLES:
-    Create components for 2019
-        $ ${0} -c 2019
+    Create components for all universities in 2019
+        $ ${0} -c all 2019
+
+    Create components for aa in 2019
+        $ ${0} -c aa 2019
 
     Create components starting from 2017 up to 2018
-        $ ${0} --create 2017 2018
+        $ ${0} --create all 2017 2018
 
     Move 2017 components to angular application folder: ${appFolder}
-        $ ${0} --move 2017
+        $ ${0} --move all 2017
 EOF
 }
 
@@ -65,10 +76,10 @@ case "${1}" in
     help_menu
   ;;
   -c | --create)
-    check_options generate ${2} ${3}
+    check_options generate ${2} ${3} ${4}
   ;;
   -m | --move)
-    check_options move_files ${2} ${3}
+    check_options move_files ${2} ${3} ${4}
   ;;
   *)
     echo "Wrong options, try ${0} --help"

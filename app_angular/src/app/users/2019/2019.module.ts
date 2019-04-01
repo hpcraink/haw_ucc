@@ -11,9 +11,12 @@ import { Users2019Component } from './2019.component';
 import { Aa2019Component } from './aa/year.component';
 import { Aa20191Component } from './aa/1.component';
 import { Aa20192Component } from './aa/2.component';
+import { Aa20193Component } from './aa/3.component';
+import { Aa20194Component } from './aa/4.component';
 import { As2019Component } from './as/year.component';
 import { As20191Component } from './as/1.component';
 import { As20192Component } from './as/2.component';
+import { As20193Component } from './as/3.component';
 import { Es2019Component } from './es/year.component';
 import { Es20191Component } from './es/1.component';
 import { Es20192Component } from './es/2.component';
@@ -24,14 +27,17 @@ import { Hk20192Component } from './hk/2.component';
 import { Hn2019Component } from './hn/year.component';
 import { Hn20191Component } from './hn/1.component';
 import { Hn20192Component } from './hn/2.component';
+import { Hn20193Component } from './hn/3.component';
 import { Hs2019Component } from './hs/year.component';
 import { Hs20191Component } from './hs/1.component';
 import { Hs20192Component } from './hs/2.component';
 import { Hs20193Component } from './hs/3.component';
+import { Hs20194Component } from './hs/4.component';
 import { Hu2019Component } from './hu/year.component';
 import { Hu20191Component } from './hu/1.component';
 import { Hu20192Component } from './hu/2.component';
 import { Hu20193Component } from './hu/3.component';
+import { Hu20194Component } from './hu/4.component';
 
 @NgModule({
   imports: [
@@ -45,9 +51,12 @@ import { Hu20193Component } from './hu/3.component';
     Aa2019Component,
     Aa20191Component,
     Aa20192Component,
+    Aa20193Component,
+    Aa20194Component,
     As2019Component,
     As20191Component,
     As20192Component,
+    As20193Component,
     Es2019Component,
     Es20191Component,
     Es20192Component,
@@ -58,14 +67,17 @@ import { Hu20193Component } from './hu/3.component';
     Hn2019Component,
     Hn20191Component,
     Hn20192Component,
+    Hn20193Component,
     Hs2019Component,
     Hs20191Component,
     Hs20192Component,
     Hs20193Component,
+    Hs20194Component,
     Hu2019Component,
     Hu20191Component,
     Hu20192Component,
     Hu20193Component,
+    Hu20194Component,
 
   ],
 })
