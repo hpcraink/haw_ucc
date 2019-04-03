@@ -260,7 +260,7 @@ def writeComponents(prefix, year, month, uni="all"):
   if uni == "all":
     componentFolder = os.path.join(outputFolder, str(year), prefix)
   elif uni in hawPrefixes:
-    componentFolder = os.path.join(outputFolder, uni, str(year))
+    componentFolder = os.path.join(outputFolder, uni, str(year), prefix)
   else:
     return "Wrong Uni specified"
 

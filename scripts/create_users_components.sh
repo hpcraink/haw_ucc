@@ -43,7 +43,9 @@ move_files () {
     echo "--- moving files from ${dataFolder} to ${appFolder}..."
     mv ${dataFolder}/${year}/* ${appFolder}/${year}
   else
-    echo "should move to ${uni}"
+    echo "--- moving files from ${dataFolder}..."
+    destFolder="../app_uni/src/app/users/"
+    mv ${dataFolder}/${uni}/* ${destFolder}
   fi
 }
 
