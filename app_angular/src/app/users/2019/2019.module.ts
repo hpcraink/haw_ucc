@@ -13,14 +13,18 @@ import { Aa20191Component } from './aa/1.component';
 import { Aa20192Component } from './aa/2.component';
 import { Aa20193Component } from './aa/3.component';
 import { Aa20194Component } from './aa/4.component';
+import { Aa20195Component } from './aa/5.component';
 import { As2019Component } from './as/year.component';
 import { As20191Component } from './as/1.component';
 import { As20192Component } from './as/2.component';
 import { As20193Component } from './as/3.component';
+import { As20194Component } from './as/4.component';
 import { Es2019Component } from './es/year.component';
 import { Es20191Component } from './es/1.component';
 import { Es20192Component } from './es/2.component';
 import { Es20193Component } from './es/3.component';
+import { Es20194Component } from './es/4.component';
+import { Es20195Component } from './es/5.component';
 import { Hk2019Component } from './hk/year.component';
 import { Hk20191Component } from './hk/1.component';
 import { Hk20192Component } from './hk/2.component';
@@ -33,11 +37,13 @@ import { Hs20191Component } from './hs/1.component';
 import { Hs20192Component } from './hs/2.component';
 import { Hs20193Component } from './hs/3.component';
 import { Hs20194Component } from './hs/4.component';
+import { Hs20195Component } from './hs/5.component';
 import { Hu2019Component } from './hu/year.component';
 import { Hu20191Component } from './hu/1.component';
 import { Hu20192Component } from './hu/2.component';
 import { Hu20193Component } from './hu/3.component';
 import { Hu20194Component } from './hu/4.component';
+import { Hu20195Component } from './hu/5.component';
 
 @NgModule({
   imports: [
@@ -53,14 +59,18 @@ import { Hu20194Component } from './hu/4.component';
     Aa20192Component,
     Aa20193Component,
     Aa20194Component,
+    Aa20195Component,
     As2019Component,
     As20191Component,
     As20192Component,
     As20193Component,
+    As20194Component,
     Es2019Component,
     Es20191Component,
     Es20192Component,
     Es20193Component,
+    Es20194Component,
+    Es20195Component,
     Hk2019Component,
     Hk20191Component,
     Hk20192Component,
@@ -73,11 +83,13 @@ import { Hu20194Component } from './hu/4.component';
     Hs20192Component,
     Hs20193Component,
     Hs20194Component,
+    Hs20195Component,
     Hu2019Component,
     Hu20191Component,
     Hu20192Component,
     Hu20193Component,
     Hu20194Component,
+    Hu20195Component,
 
   ],
 })

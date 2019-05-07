@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material';
@@ -11,8 +12,7 @@ import { AnnualModule } from './annual/annual.module';
 import { Month1Module } from './1/1.module';
 import { Month2Module } from './2/2.module';
 import { Month3Module } from './3/3.module';
-
-
+import { Month4Module } from './4/4.module';
 @NgModule({
   imports: [
     AnnualModule,
@@ -20,6 +20,7 @@ import { Month3Module } from './3/3.module';
     Month1Module,
     Month2Module,
     Month3Module,
+    Month4Module,
     UnisModule,
     Year2019RouterModule,
     MatTabsModule,

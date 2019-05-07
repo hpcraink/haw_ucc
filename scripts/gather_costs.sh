@@ -121,6 +121,9 @@ help_menu () {
 
     Gather data from 2017 till 2019:
         $ ${0} 2017 2019
+
+    Move data from ${ngDataFolder} to ${appFolder}
+        $ ${0} -m
 EOF
 }
 

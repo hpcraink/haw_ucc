@@ -37,3 +37,7 @@ app_angular/src.old
 
 app_uni/scripts/htppwd/data
 app_uni/prod_work
+
+# Data files
+app_angular/src/app/_data
+app_angular/src/app/_helpers/add_data.ts
