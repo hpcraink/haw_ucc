@@ -4,6 +4,7 @@ data/
 clean_angular/
 commands
 scripts/ngData/
+scripts/log.update
 
 # Angular files
 # See http://help.github.com/ignore-files/ for more about ignoring files.

@@ -137,7 +137,7 @@ def monthsString(year):
   text += '"Year"];'
   return text
 
-def mainComponent(year, uni="all"):
+def mainComponent(year):
   text = '''
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatTableDataSource } from '@angular/material';
@@ -178,6 +178,34 @@ export class Users${year}Component implements OnInit {
     this.dataSource.sort = this.sort;
   }
 }'''
+  return Template(text).substitute(year=year)
+
+def mainHTML(year):
+  text = '''
+<h1 style="margin-top: 40px;">Unique "{{uniName}}" users in ${year}</h1>
+<div class="users-pro-uni-table">
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="month" sticky>
+    <th mat-header-cell *matHeaderCellDef> Month </th>
+    <td mat-cell *matCellDef="let element">{{monthsDict[element.month]}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="users">
+    <th mat-header-cell *matHeaderCellDef> Users </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button color="accent" class="users-table-btn"
+        *ngIf="element.users !== 0" [routerLink]="prefix + '/' + element.month">
+        {{element.users}}
+      </button>
+      <p *ngIf="element.users === 0" class="users-table-text">0</p>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColums; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColums"></tr>
+</table></div>'''
   return Template(text).substitute(year=year)
 
 def html():
@@ -299,7 +327,11 @@ def createFiles(year, uni="all"):
 
   compFile = os.path.join(outFolder, str(year) + '.component.ts')
   with open(compFile, 'w') as compF:
-    compF.write(mainComponent(year, uni))
+    compF.write(mainComponent(year))
+
+  htmlFile = os.path.join(outFolder, str(year) + '.component.html')
+  with open(htmlFile, 'w') as htmlF:
+    htmlF.write(mainHTML(year))
 
   if uni != "all" and uni in hawPrefixes:
     prefixes = [uni]

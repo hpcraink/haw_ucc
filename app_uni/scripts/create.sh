@@ -3,6 +3,7 @@
 possible_prefixes='aa as es hf hk hn hr hs ht hu ro'
 prefixes='aa hu'
 scriptsFolder='../scripts/'
+month2019=4
 
 build () {
   [[ ! -d src ]] && npm run make:new
@@ -22,7 +23,7 @@ create () {
 
   [[ ${year} -eq 2017 ]] && ./scripts/users_components.py -y 2017 -m 12 -u ${prefix} -s 5
   [[ ${year} -eq 2018 ]] && ./scripts/users_components.py -y 2018 -m 12 -u ${prefix}
-  [[ ${year} -eq 2019 ]] && ./scripts/users_components.py -y 2019 -m 3 -u ${prefix}
+  [[ ${year} -eq 2019 ]] && ./scripts/users_components.py -y 2019 -m ${month2019} -u ${prefix}
 }
 
 help_menu () {
@@ -57,6 +58,7 @@ case ${1} in
     for prefix in ${possible_prefixes}; do
       if [[ ${2} == ${prefix} ]]; then
         #statements
+        npm run clean &&
         startYear=2017
         while [[ ${startYear} -le `date +%Y` ]]; do
           create ${prefix} ${startYear}
@@ -70,6 +72,7 @@ case ${1} in
   *)
     for prefix in ${possible_prefixes}; do
       [[ ${1} == ${prefix} ]] && [[ ${2} -ge 2017 ]] &&
+      npm run clean &&
       create ${prefix} ${2} && exit 1
     done
     echo "Wrong option. For more info try ${0} --help"
