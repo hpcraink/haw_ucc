@@ -128,6 +128,58 @@ export class Users${year}Module { }
   textTempl = Template(text)
   return textTempl.substitute(year=str(year))
 
+def monthsString(year):
+  text = '''
+  public months:string[] = ['''
+  for month in range(1,13):
+    if getJsonObject(year, month) != -1 :
+      text += '"' + sublinks[month] + '", '
+  text += '"Year"];'
+  return text
+
+def mainComponent(year, uni="all"):
+  text = '''
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatTableDataSource } from '@angular/material';
+
+import { DataObject, YearlyUniUsers } from '../../_helpers/users.methods';
+import * as db from '../../_data/${year}';
+
+const monthlyData = [
+  { month: -1, data: db.udata_${year} },
+'''
+  for month in range(1,13):
+    if getJsonObject(year, month) != -1:
+      text += Template('''  { month: ${month}, data: db.udata_${year}_${month} },
+''').substitute(year=year, month=month)
+  text += '''];
+
+const Data = new DataObject();
+
+@Component({
+  selector: 'users-${year}-root',
+  templateUrl: './${year}.component.html'
+})
+export class Users${year}Component implements OnInit {
+  constructor() {}
+
+  private TABLE_DATA = Data.yearlyUsers(monthlyData);
+'''
+  text += monthsString(year)
+  text += '''
+
+  public displayedColums:string[] = ['name'].concat(this.months);
+  public dataSource: MatTableDataSource<YearlyUniUsers> =
+    new MatTableDataSource(this.TABLE_DATA);
+
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngOnInit () {
+    this.dataSource.sort = this.sort;
+  }
+}'''
+  return Template(text).substitute(year=year)
+
 def html():
   return '''
 <h1>{{uni}}. {{title}} {{month}}</h1>
@@ -244,6 +296,10 @@ def createFiles(year, uni="all"):
   moduleFile = os.path.join(outFolder, str(year) + '.module.ts')
   with open (moduleFile, 'w') as moduleF:
     moduleF.write(module(year, uni))
+
+  compFile = os.path.join(outFolder, str(year) + '.component.ts')
+  with open(compFile, 'w') as compF:
+    compF.write(mainComponent(year, uni))
 
   if uni != "all" and uni in hawPrefixes:
     prefixes = [uni]
