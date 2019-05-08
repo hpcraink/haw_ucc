@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 import { uca_2018_11 } from '../../_data/bwUniData_2018';
+import { total_uca_2018 } from '../../_data/total';
 import { months,
-         total_uca_2018,
          pie_chart_opt
        } from '../../_helpers/add_data';
 

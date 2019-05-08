@@ -31,8 +31,8 @@ generate_component () {
 import { Component } from '@angular/core';
 
 import { ${ucaVariable} } from '../../_data/bwUniData_${year}';
+import { total_uca_${year} } from '../../_data/total';
 import { months,
-         total_uca_${year},
          pie_chart_opt
        } from '../../_helpers/add_data';
 

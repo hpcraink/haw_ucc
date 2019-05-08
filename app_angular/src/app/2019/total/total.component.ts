@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 
-import {
-  months, total_opt,
-  total_uca_2019
-} from './../../_helpers/add_data';
+import { total_uca_2019 } from '../../_data/total';
+import { months, total_opt } from './../../_helpers/add_data';
 
 // get data
 let data:any[] = [];
