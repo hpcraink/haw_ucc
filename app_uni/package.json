@@ -27,6 +27,7 @@
     "prod": "npm run build && npm run build:css && webpack --config webpack/aot.config.js",
     "compile": "[[ ! -d public ]] && mkdir public; npm run prod && npm run cp:htpacc && npm run clean:src",
     "sync": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:~/.public_html/aa/ --delete-excluded",
+    "sync:aa": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/aa/ --delete-excluded",
     "watch": "ng serve --aot --watch"
   },
   "author": "Alexandru Saramet",

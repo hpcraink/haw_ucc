@@ -46,3 +46,9 @@ export const months = [
   'December', 'January', 'February', 'March', 'April', 'May', 'June', 'July',
   'August', 'September', 'October', 'November', 'December'
 ];
+
+export const monthsDict = {
+  'Jan': 'January', 'Feb': 'February', 'Mar': 'March', 'Apr': 'April',
+  'May': 'May', 'Jun': 'June', 'Jul': 'July', 'Aug': 'August', 'Sep': 'September',
+  'Oct': 'October', 'Nov': 'November', 'Dec': 'December', 'Year': 'Total'
+}

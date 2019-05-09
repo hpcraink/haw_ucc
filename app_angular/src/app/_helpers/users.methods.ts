@@ -31,10 +31,10 @@ interface MonthlyData {
 }
 
 export interface YearlyUniUsers {
-  prefix: string,
-  name: string,
-  Jan?: number,
-  Feb?: number,
+  prefix:string,
+  name:string,
+  Jan?:number,
+  Feb?:number,
   Mar?:number,
   Apr?:number,
   May?:number,
@@ -45,6 +45,11 @@ export interface YearlyUniUsers {
   Oct?:number,
   Nov?:number,
   Dec?:number
+}
+
+export interface SortedUniUsers {
+  users:number,
+  month:string
 }
 
 export class DataObject  {
@@ -135,5 +140,21 @@ export class DataObject  {
         chartData.push([row.userID, row.costs]);
       })
     return chartData
+  }
+
+  public sortedYearlyUsers(monthlyDataObject:MonthlyData[]):SortedUniUsers[] {
+    let usersData:any[] = []
+    monthlyDataObject.forEach((monthly_data:MonthlyData) => {
+      const month = monthly_data.month === -1 ? 'Year' : months[monthly_data.month].substring(0,3)
+      this.getData(monthly_data.data).forEach((uni_data:UniData) => {
+        const users = uni_data.data ? uni_data.data.length : 0
+        if (usersData[uni_data.prefix]) {
+          usersData[uni_data.prefix].push({month:month, users: users})
+        } else {
+          usersData[uni_data.prefix] = [{month:month, users:users}]
+        }
+      })
+    })
+    return usersData;
   }
 }

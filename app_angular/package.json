@@ -7,7 +7,7 @@
     "frontend": "app.js"
   },
   "scripts": {
-    "sync:htpacc": "rsync -uavh aot_files/htppwd/htaccess asaramet@rzlx0900.hs-esslingen.de:~/.public_html/auslastung/.htaccess",
+    "sync:htpacc": "rsync -uavh aot_files/htppwd/htaccess asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/all/.htaccess",
     "sync:htpwd": "rsync -uavh aot_files/htppwd/htpasswd asaramet@rzlx0900.hs-esslingen.de:~/.htpasswd",
     "sync:htpall": "npm run sync:htpacc && npm run sync:htpacc",
     "clean:js": "find src/ -name '*.js' -type f -exec rm {} -f \\;",
@@ -30,7 +30,7 @@
     "build:css": "webpack --config webpack/css.config.js && npm run cp:css",
     "prod": "npm run build && npm run build:css && webpack --config webpack/aot.config.js",
     "compile": "[[ ! -d public ]] && mkdir public; npm run prod && npm run cp:htpacc && npm run clean:src",
-    "sync": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:~/.public_html/auslastung/ --delete-excluded",
+    "sync": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/all/ --delete-excluded",
     "save": "[[ -d public ]] && [[ -d ./prod_work ]] && rm ./prod_work -rf;  mv public prod_work || echo 'compile first!!!'",
     "watch": "ng serve --aot --watch"
   },
