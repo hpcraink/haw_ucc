@@ -57,16 +57,12 @@ case ${1} in
   all)
     for prefix in ${possible_prefixes}; do
       if [[ ${2} == ${prefix} ]]; then
-        #statements
-        npm run clean &&
         startYear=2017
         while [[ ${startYear} -le `date +%Y` ]]; do
           create ${prefix} ${startYear}
           startYear=$(( ${startYear} + 1 ))
         done
-      break
       fi
-      echo "Wrong prefix: ${prefix}" && exit 1
     done
   ;;
   *)
