@@ -15,7 +15,8 @@ sync_data () {
   echo ""
   echo "--- Year: ${year}"
   [[ ! -d ${dataFolder}/${year} ]] && mkdir -p ${dataFolder}/${year}
-  rsync -auv es_asaramet@bwunicluster.scc.kit.edu:/opt/moab/stats/feedback/${year}*.log ${dataFolder}/${year}
+  rsync -auv es_asaramet@bwunicluster.scc.kit.edu:/opt/moab/stats/feedback/${year}*.log ${dataFolder}/${year} &&
+  rsync -auv ${dataFolder}/${year}/* comserver.hs-esslingen.de:/www/faculty/it/bwHPC/SCRIPTS/${year} &&
   echo "DONE synchronizing!"
 }
 
