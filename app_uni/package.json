@@ -28,11 +28,10 @@
     "prod:hu": "npm run build:hu && npm run build:css && webpack --config webpack/aot.config.js",
     "cp:htpacc:aa": "cp scripts/htppwd/htaccess-aa public/.htaccess",
     "cp:htpacc:hu": "cp scripts/htppwd/htaccess-hu public/.htaccess",
-    "sync": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:~/.public_html/aa/ --delete-excluded",
     "compile:aa": "npm run clean:src && [[ ! -d public ]] && mkdir public; npm run prod:aa && npm run cp:htpacc:aa",
     "compile:hu": "npm run clean:src && [[ ! -d public ]] && mkdir public; npm run prod:hu && npm run cp:htpacc:hu",
-    "sync:aa": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/aa/ --delete-excluded",
-    "sync:hu": "rsync -uavh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/hu/ --delete-excluded",
+    "sync:aa": "rsync -uvh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/aa/ --delete-excluded",
+    "sync:hu": "rsync -uvh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/hu/ --delete-excluded",
     "create:new": "./scripts/create.sh -b",
     "watch": "ng serve --aot --watch"
   },
