@@ -3,7 +3,7 @@
 possible_prefixes='aa as es hf hk hn hr hs ht hu ro'
 prefixes='aa hu'
 scriptsFolder='../scripts/'
-month2019=4
+month2019=`date +%m`
 
 build () {
   [[ ! -d src ]] && npm run make:new

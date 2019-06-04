@@ -30,10 +30,11 @@
     "cp:htpacc:hu": "cp scripts/htppwd/htaccess-hu public/.htaccess",
     "compile:aa": "npm run clean:src && [[ ! -d public ]] && mkdir public; npm run prod:aa && npm run cp:htpacc:aa",
     "compile:hu": "npm run clean:src && [[ ! -d public ]] && mkdir public; npm run prod:hu && npm run cp:htpacc:hu",
-    "sync:aa": "rsync -uvh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/aa/ --delete-excluded",
-    "sync:hu": "rsync -uvh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/hu/ --delete-excluded",
+    "sync:aa": "rsync -uvhr public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/aa/ --delete-excluded",
+    "sync:hu": "rsync -uvhr public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/hu/ --delete-excluded",
     "create:new": "./scripts/create.sh -b",
-    "watch": "ng serve --aot --watch"
+    "watch": "ng serve --aot --watch",
+    "update": "./scripts/update_all.sh"
   },
   "author": "Alexandru Saramet",
   "license": "ISC",

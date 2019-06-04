@@ -1,4 +1,4 @@
-AuthUserFile /home/rsns01/staff/it/asaramet/unix/.htpasswd
+AuthUserFile /www/faculty/it/bwHPC/.htpasswd
 AuthName "index.html"
 AuthType Basic
-Require user admin huPower
+Require user admin huAdmin
