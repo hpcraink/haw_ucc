@@ -14,7 +14,6 @@ import { Month2Module } from './2/2.module';
 import { Month3Module } from './3/3.module';
 import { Month4Module } from './4/4.module';
 import { Month5Module } from './5/5.module';
-import { Month6Module } from './6/6.module';
 @NgModule({
   imports: [
     AnnualModule,
@@ -24,7 +23,6 @@ import { Month6Module } from './6/6.module';
     Month3Module,
     Month4Module,
     Month5Module,
-    Month6Module,
     UnisModule,
     Year2019RouterModule,
     MatTabsModule,
