@@ -12,6 +12,7 @@ const monthlyData = [
   { month: 3, data: db.udata_2019_3 },
   { month: 4, data: db.udata_2019_4 },
   { month: 5, data: db.udata_2019_5 },
+  { month: 6, data: db.udata_2019_6 },
 ];
 
 const Data = new DataObject();
@@ -25,7 +26,7 @@ export class Users2019Component implements OnInit {
 
   private TABLE_DATA = Data.yearlyUsers(monthlyData);
 
-  public months:string[] = ["Jan", "Feb", "Mar", "Apr", "May", "Year"];
+  public months:string[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Year"];
 
   public displayedColums:string[] = ['name'].concat(this.months);
   public dataSource: MatTableDataSource<YearlyUniUsers> =

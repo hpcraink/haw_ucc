@@ -180,7 +180,7 @@ export class Users${year}Component implements OnInit {
 }'''
   return Template(text).substitute(year=year)
 
-def mainHTML(year):
+def mainHTMLhaw(year):
   text = '''
 <h1 style="margin-top: 40px;">Unique "{{uniName}}" users in ${year}</h1>
 <div class="users-pro-uni-table">
@@ -202,6 +202,35 @@ def mainHTML(year):
       <p *ngIf="element.users === 0" class="users-table-text">0</p>
     </td>
   </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColums; sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColums"></tr>
+</table></div>'''
+  return Template(text).substitute(year=year)
+
+def mainHTML(year):
+  text = '''
+<h1>Unique HAW users in ${year}</h1>
+<div class="users-table">
+<table mat-table [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="name" sticky>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> University name </th>
+    <td mat-cell *matCellDef="let element">{{element.name}}
+    </td>
+  </ng-container>
+  <div *ngFor="let month of months">
+    <ng-container [matColumnDef]="month">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{month}}</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="accent" class="users-table-btn"
+          *ngIf="element[month] !== 0" [routerLink]="element.prefix + '/' + month">
+          {{element[month]}}
+        </button>
+        <p *ngIf="element[month] === 0" class="users-table-text">0</p>
+      </td>
+    </ng-container>
+  </div>
 
   <tr mat-header-row *matHeaderRowDef="displayedColums; sticky: true"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColums"></tr>
@@ -331,7 +360,10 @@ def createFiles(year, uni="all"):
 
   htmlFile = os.path.join(outFolder, str(year) + '.component.html')
   with open(htmlFile, 'w') as htmlF:
-    htmlF.write(mainHTML(year))
+    if uni == "all":
+      htmlF.write(mainHTML(year))
+    else:
+      htmlF.write(mainHTMLhaw(year))
 
   if uni != "all" and uni in hawPrefixes:
     prefixes = [uni]
