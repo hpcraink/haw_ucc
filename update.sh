@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MD=$PWD
+MD="/home/asaramet/Dropbox/HEprojects/WEB/haw_ucc"
 S_DIR=${MD}/scripts
 A_DIR=${MD}/app_angular
 YEAR=2019

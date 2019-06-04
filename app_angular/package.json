@@ -31,7 +31,8 @@
     "compile": "[[ ! -d public ]] && mkdir public; npm run prod && npm run cp:htpacc && npm run clean:src",
     "sync": "rsync -uvrh public/ asaramet@rzlx0900.hs-esslingen.de:/www/faculty/it/bwHPC/_ssl/all/ --delete-excluded",
     "save": "[[ -d public ]] && [[ -d ./prod_work ]] && rm ./prod_work -rf;  mv public prod_work || echo 'compile first!!!'",
-    "watch": "ng serve --aot --watch"
+    "watch": "ng serve --aot --watch",
+    "update": "../update.sh `date +%m` && npm run compile && npm run sync && npm run save"
   },
   "author": "Alexandru Saramet",
   "license": "ISC",
