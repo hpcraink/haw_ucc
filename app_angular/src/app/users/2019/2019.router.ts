@@ -39,6 +39,8 @@ import { Hs20193Component } from './hs/3.component';
 import { Hs20194Component } from './hs/4.component';
 import { Hs20195Component } from './hs/5.component';
 import { Hs20196Component } from './hs/6.component';
+import { Ht2019Component } from './ht/year.component';
+import { Ht20196Component } from './ht/6.component';
 import { Hu2019Component } from './hu/year.component';
 import { Hu20191Component } from './hu/1.component';
 import { Hu20192Component } from './hu/2.component';
@@ -84,6 +86,8 @@ const routes: Routes = [
   { path: 'hs/Apr', component: Hs20194Component},
   { path: 'hs/May', component: Hs20195Component},
   { path: 'hs/Jun', component: Hs20196Component},
+  { path: 'ht/Year', component: Ht2019Component},
+  { path: 'ht/Jun', component: Ht20196Component},
   { path: 'hu/Year', component: Hu2019Component},
   { path: 'hu/Jan', component: Hu20191Component},
   { path: 'hu/Feb', component: Hu20192Component},

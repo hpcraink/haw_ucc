@@ -44,6 +44,8 @@ import { Hs20193Component } from './hs/3.component';
 import { Hs20194Component } from './hs/4.component';
 import { Hs20195Component } from './hs/5.component';
 import { Hs20196Component } from './hs/6.component';
+import { Ht2019Component } from './ht/year.component';
+import { Ht20196Component } from './ht/6.component';
 import { Hu2019Component } from './hu/year.component';
 import { Hu20191Component } from './hu/1.component';
 import { Hu20192Component } from './hu/2.component';
@@ -97,6 +99,8 @@ import { Hu20196Component } from './hu/6.component';
     Hs20194Component,
     Hs20195Component,
     Hs20196Component,
+    Ht2019Component,
+    Ht20196Component,
     Hu2019Component,
     Hu20191Component,
     Hu20192Component,
