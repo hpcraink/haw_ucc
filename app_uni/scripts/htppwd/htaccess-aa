@@ -1,4 +1,0 @@
-AuthUserFile /www/faculty/it/bwHPC/.htpasswd
-AuthName "index.html"
-AuthType Basic
-Require user admin aaAdmin
