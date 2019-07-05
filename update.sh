@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-MD="/home/asaramet/Dropbox/HEprojects/WEB/haw_ucc"
+MD="$PWD/.."
 S_DIR=${MD}/scripts
 A_DIR=${MD}/app_angular
 YEAR=2019
 LOG_FILE=log.update
 
+#### Set either one; MONTH=12 if full year is to be synched & updated
 declare -i MONTH=`date +%m`
+# MONTH=12
 [[ ! -z ${1} ]] && declare -i MONTH=${1}
 
 run_scripts () {
